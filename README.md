@@ -1,3 +1,3 @@
 # Boli Monjaraz Portfolio
 
-## includes projects built throughout the Bottega course
+## includes the React project built throughout the Bottega course

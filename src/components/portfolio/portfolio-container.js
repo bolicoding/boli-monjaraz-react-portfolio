@@ -13,7 +13,7 @@ export default class PortfolioContainer extends Component {
     const data = ["Fast Garage", "FFL", "OTC", "FedEx"];
 
     return data.map(item => {
-      return <PortfolioItem />;
+      return <PortfolioItem title={item} />;
     })
   }
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PortfolioItem from "./portfolio-item";
 
+import PortfolioItem from "./portfolio-item";
 
 export default class PortfolioContainer extends Component {
   constructor() {
@@ -10,29 +10,28 @@ export default class PortfolioContainer extends Component {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
       data: [
-        { title: "Fast Garage", category: "eCommerce" },
-        { title: "FFL", category: "Scheduling" },
-        { title: "OTC", category: "Enterprise" },
-        { title: "FedEx", category: "eCommerce" }
+        { title: "Quip", category: "eCommerce" },
+        { title: "Eventbrite", category: "Scheduling" },
+        { title: "Ministry Safe", category: "Enterprise" },
+        { title: "SwingAway", category: "eCommerce" }
       ]
     };
 
     this.handleFilter = this.handleFilter.bind(this);
   }
 
-handleFilter(filter) {
-  this.setState({
-    data: this.state.data.filter(item => {
-      return item.category === filter;
-    })
-  })
-}
-
+  handleFilter(filter) {
+    this.setState({
+      data: this.state.data.filter(item => {
+        return item.category === filter;
+      })
+    });
+  }
 
   portfolioItems() {
     return this.state.data.map(item => {
-      return <PortfolioItem title={item.title} />;
-    })
+      return <PortfolioItem title={item.title} url={"google.com"} />;
+    });
   }
 
   render() {
@@ -44,13 +43,13 @@ handleFilter(filter) {
       <div>
         <h2>{this.state.pageTitle}</h2>
 
-        <button onClick={() => this.handleFilter('eCommerce')}>
+        <button onClick={() => this.handleFilter("eCommerce")}>
           eCommerce
         </button>
-        <button onClick={() => this.handleFilter('Scheduling')}>
+        <button onClick={() => this.handleFilter("Scheduling")}>
           Scheduling
         </button>
-        <button onClick={() => this.handleFilter('Enterprise')}>
+        <button onClick={() => this.handleFilter("Enterprise")}>
           Enterprise
         </button>
 

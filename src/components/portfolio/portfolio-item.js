@@ -6,11 +6,11 @@ export default function(props) {
     // - logo:
     // - description: description
     // - id: id
-  const { id, description, thumb_image_url, logo} = props.item;
+  const { id, description, thumb_image_url, logo_url} = props.item;
   return (
     <div>
       <img src={thumb_image_url} />
-      <img src={logo} />
+      <img src={logo_url} />
       <div>{description}</div>
       <Link to={`/portolio/${id}`}>Link</Link>
     </div>

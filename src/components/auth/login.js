@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
 export default class Login extends Component {
   constructor(props) {
@@ -11,8 +11,8 @@ export default class Login extends Component {
       errorText: ""
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -24,40 +24,40 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     axios
-    .post(
-      "https://api.devcamp.space/sessions",
-    {
-      client: {
-        email: this.state.email,
-        password: this.state.password
-      }
-    },
-    { withCredentials: true }
-  )
-    .then(response => {
-      if (response.data.status === 'created') {
-        this.props.handleSuccessfulAuth();
-      } else {
+      .post(
+        "https://api.devcamp.space/sessions",
+        {
+          client: {
+            email: this.state.email,
+            password: this.state.password
+          }
+        },
+        { withCredentials: true }
+      )
+      .then(response => {
+        if (response.data.status === "created") {
+          this.props.handleSuccessfulAuth();
+        } else {
+          this.setState({
+            errorText: "Wrong email or password"
+          });
+          this.props.handleUnSuccessfulAuth();
+        }
+      })
+      .catch(error => {
         this.setState({
-          errorText: "wrong email or password"
+          errorText: "An error occurred"
         });
         this.props.handleUnSuccessfulAuth();
-      }
-    })
-    .catch(error => {
-      this.setState({
-        errorText: "An error occurred"
       });
-      this.props.handleUnSuccessfulAuth();
-    });
 
     event.preventDefault();
   }
 
   render() {
-    return(
+    return (
       <div>
-        <h1>Login to access your dashboard</h1>
+        <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
 
         <div>{this.state.errorText}</div>
 
@@ -83,6 +83,6 @@ export default class Login extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }

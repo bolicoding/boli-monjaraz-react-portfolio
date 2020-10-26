@@ -16,17 +16,25 @@ export class PortfolioForm extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    console.log("event", event);
+    event.preventDefault();
   }
 
   handleChange(event) {
-    console.log("handle change", event);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
   render() {
     return (
       <div>
         <h1>PortfolioForm</h1>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <input
               type="text"

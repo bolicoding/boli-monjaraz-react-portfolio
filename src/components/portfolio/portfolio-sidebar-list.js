@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const PortfolioSidebarList = props => {
-  const portfolioList = props.data.map(portfolioItem => {
+const PortfolioSidebarList = (props) => {
+  const portfolioList = props.data.map((portfolioItem) => {
     return (
       <div className="portfolio-item-thumb">
         <div className="portfolio-thumb-img">
@@ -10,10 +10,10 @@ const PortfolioSidebarList = props => {
         <h1 className="title">{portfolioItem.name}</h1>
         <h2>{portfolioItem.id}</h2>
       </div>
-    )
-  })
+    );
+  });
 
-return <div className="portfolio-sidebar-list-wrapper">{portfolioList}</div>
-}
+  return <div className="portfolio-sidebar-list-wrapper">{portfolioList}</div>;
+};
 
-export default PortfolioSidebarList
+export default PortfolioSidebarList;

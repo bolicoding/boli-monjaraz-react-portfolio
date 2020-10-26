@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-export default function() {
+export default function () {
   return (
-   <div>
-     <h2>Blog</h2>
-
     <div>
-      <Link to="/about-me">Read More About Me</Link>
+      <h2>Blog</h2>
+
+      <div>
+        <Link to="/about-me">Read More About Me</Link>
+      </div>
     </div>
-   </div>
-  )
+  );
 }

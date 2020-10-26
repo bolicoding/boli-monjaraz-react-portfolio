@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
 
@@ -10,7 +10,7 @@ export default class PortfolioContainer extends Component {
     this.state = {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
-      data: []
+      data: [],
     };
 
     this.handleFilter = this.handleFilter.bind(this);
@@ -18,28 +18,28 @@ export default class PortfolioContainer extends Component {
 
   getPortfolioItems() {
     axios
-      .get('https://bolivarmonjaraz.devcamp.space/portfolio/portfolio_items')
-      .then(response => {
+      .get("https://bolivarmonjaraz.devcamp.space/portfolio/portfolio_items")
+      .then((response) => {
         this.setState({
-          data: response.data.portfolio_items
+          data: response.data.portfolio_items,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   handleFilter(filter) {
     this.setState({
-      data: this.state.data.filter(item => {
+      data: this.state.data.filter((item) => {
         return item.category === filter;
-      })
+      }),
     });
   }
 
   portfolioItems() {
-    return this.state.data.map(item => {
-      return <PortfolioItem key={item.id} item={item}/>;
+    return this.state.data.map((item) => {
+      return <PortfolioItem key={item.id} item={item} />;
     });
   }
 
@@ -52,17 +52,17 @@ export default class PortfolioContainer extends Component {
       return <div>Loading...</div>;
     }
 
-    return ( 
+    return (
       <div className="portfolio-items-wrapper">
         <button className="btn" onClick={() => this.handleFilter("eCommerce")}>
-        eCommerce
+          eCommerce
         </button>
         <button className="btn" onClick={() => this.handleFilter("Scheduling")}>
           Scheduling
         </button>
         <button className="btn" onClick={() => this.handleFilter("Enterprise")}>
           Enterprise
-        </button>  
+        </button>
 
         {this.portfolioItems()}
       </div>

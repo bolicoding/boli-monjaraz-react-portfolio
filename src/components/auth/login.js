@@ -8,7 +8,7 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errorText: ""
+      errorText: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +18,7 @@ export default class Login extends Component {
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
-      errorText: ""
+      errorText: "",
     });
   }
 
@@ -29,24 +29,24 @@ export default class Login extends Component {
         {
           client: {
             email: this.state.email,
-            password: this.state.password
-          }
+            password: this.state.password,
+          },
         },
         { withCredentials: true }
       )
-      .then(response => {
+      .then((response) => {
         if (response.data.status === "created") {
           this.props.handleSuccessfulAuth();
         } else {
           this.setState({
-            errorText: "Wrong email or password"
+            errorText: "Wrong email or password",
           });
           this.props.handleUnSuccessfulAuth();
         }
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
-          errorText: "An error occurred"
+          errorText: "An error occurred",
         });
         this.props.handleUnSuccessfulAuth();
       });

@@ -227,7 +227,7 @@ export class PortfolioForm extends Component {
 
         <div className="image-uploaders">
           {this.state.thumb_image && this.state.editMode ? (
-            <h2>{this.state.thumb_image}</h2>
+            <img src={this.state.thumb_image} />
           ) : (
             <DropzoneComponent
               ref={this.thumbRef}

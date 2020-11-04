@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrash,
   faSignOutAlt,
   faEdit,
   faSpinner,
+  faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
@@ -21,7 +22,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit, faSpinner);
+library.add(faTrash, faSignOutAlt, faEdit, faSpinner, faPlusCircle);
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class App extends Component {
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
-    this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
     this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
@@ -42,7 +43,7 @@ export default class App extends Component {
     });
   }
 
-  handleUnSuccessfulLogin() {
+  handleUnsuccessfulLogin() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN",
     });
